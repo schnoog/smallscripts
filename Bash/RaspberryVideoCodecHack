@@ -1,0 +1,3 @@
+cd /boot
+cp start_x.elf start_x.elf_backup && \
+ perl -pne 's/\x47\xE9362H\x1D\x18/\x47\xE9362H\x1D\x1F/g' < start_x.elf_backup > start_x.elf
