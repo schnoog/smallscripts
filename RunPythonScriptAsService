@@ -1,0 +1,22 @@
+Example:
+Fancontrol.py (python2, /fan)
+
+nano /lib/systemd/system/fancontrol.service
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[Unit]
+Description=Fancontrol Service
+After=multi-user.target
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /fan/FanControl.py
+StandardInput=tty-force
+
+[Install]
+WantedBy=multi-user.target
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+systemctl daemon-reload
+systemctl enable fancontrol.service
+systemctl start fancontrol.service
