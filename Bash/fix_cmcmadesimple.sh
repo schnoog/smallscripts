@@ -14,16 +14,7 @@ echo "IN THE FILE $CF"
 grep "'outputfilter'" "$CF" >/dev/null && echo "--- file is already fixed --- exiting" && exit 0
 
 
-echo "Proceed? y/n"
 
-read ANSW
-
-if [ "$ANSW" != "y" ]
-then
-        echo "Your answer wasn't y , so I'm exiting" && exit 0
-fi
-
-#exit 0
 echo "Applying fix"
 
 sed -i "s/$TOFIND/$TOADD/g" "$CF"
